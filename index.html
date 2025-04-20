@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intro</title>
+  <style>
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body, html {
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .intro-container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+      background: linear-gradient(270deg, #ff3cac, #784ba0, #2b86c5);
+      background-size: 600% 600%;
+      animation: bgMove 10s ease infinite;
+      position: relative;
+    }
+
+    @keyframes bgMove {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    .r-letter {
+      font-size: 13rem;
+      color: white;
+      opacity: 0;
+      animation: fadeInZoom 2s ease forwards;
+      cursor: pointer;
+      text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeInZoom {
+      0% {
+        opacity: 0;
+        transform: scale(0.5) rotate(-10deg);
+      }
+      100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+      }
+    }
+
+    .r-letter:hover {
+      transform: scale(1.1);
+      transition: 0.3s ease;
+    }
+
+    .crown {
+      position: absolute;
+      top: calc(50% - 85px); /* posisi di atas ℜ */
+      font-size: 2.5rem;
+      opacity: 0;
+      animation: dropIn 1.5s ease forwards 1.5s;
+    }
+
+    @keyframes dropIn {
+      0% {
+        opacity: 0;
+        transform: translateY(-50px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .subtext {
+      margin-top: -55px;
+      font-size: 1.9rem;
+      font-family: cursive;
+      display: flex;
+      gap: 10px;
+    }
+
+    .subtext span {
+      opacity: 0;
+      color: #e0e0e0;
+      text-shadow: 0 0 4px white;
+      animation: fadeIn 0.5s ease forwards;
+    }
+
+    .subtext span:nth-child(1) { animation-delay: 2.2s; }
+    .subtext span:nth-child(2) { animation-delay: 2.4s; }
+    .subtext span:nth-child(3) { animation-delay: 2.6s; }
+    .subtext span:nth-child(4) { animation-delay: 2.8s; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .click-hint {
+      font-size: 1.9rem;
+      margin-top:  -70px;
+      opacity: 0;
+      animation: fadeHint 1s ease forwards 2.2s;
+    }
+
+    @keyframes fadeHint {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <div class="intro-container">
+    <div class="crown">👑</div>
+    <div class="r-letter" onclick="goToMain()">ℜ</div>
+    <div class="subtext">
+      <span>𝒶</span><span>𝓂</span><span>𝑜</span><span>𝓃</span>
+    </div>
+    <div class="click-hint"> &nbsp;&nbsp;&nbsp;&nbsp;🖐🏻</div>
+  </div>
+
+  <script>
+    document.addEventListener('contextmenu', event => event.preventDefault());
+    function goToMain() {
+      window.location.href = "home.html";
+    }
+  </script>
+</body>
+</html>
